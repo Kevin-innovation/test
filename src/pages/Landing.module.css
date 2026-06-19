@@ -1,0 +1,355 @@
+.page {
+  background: var(--bg-base);
+  min-height: 100vh;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px 60px;
+  overflow: hidden;
+}
+
+.heroGlow {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(30, 215, 96, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(30, 215, 96, 0.12);
+  border: 1px solid rgba(30, 215, 96, 0.3);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+}
+
+.heroTitle {
+  font-size: clamp(36px, 6vw, 60px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--text-base);
+}
+
+.heroAccent {
+  color: var(--accent);
+}
+
+.heroDesc {
+  font-size: 17px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+/* Input Area */
+.inputArea {
+  width: 100%;
+  max-width: 540px;
+  background: var(--bg-surface);
+  border-radius: 16px;
+  padding: 28px 32px;
+  box-shadow: var(--shadow-heavy);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-base);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inputHint {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.slider {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    var(--accent) 0%,
+    var(--accent) calc((var(--value, 4) - 0.5) / 15.5 * 100%),
+    #4d4d4d calc((var(--value, 4) - 0.5) / 15.5 * 100%),
+    #4d4d4d 100%
+  );
+  outline: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(30, 215, 96, 0.5);
+  transition: transform 0.15s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-mid);
+  border-radius: 8px;
+  padding: 8px 12px;
+  min-width: 90px;
+}
+
+.numberInput {
+  width: 48px;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text-base);
+  font-size: 18px;
+  font-weight: 700;
+  font-family: inherit;
+  text-align: right;
+}
+
+.numberInput::-webkit-inner-spin-button,
+.numberInput::-webkit-outer-spin-button {
+  opacity: 0.4;
+}
+
+.inputUnit {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.sliderTicks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 0 2px;
+}
+
+.ctaBtn {
+  margin-top: 4px;
+  font-size: 15px;
+  padding: 16px 40px;
+}
+
+/* Stages */
+.stages {
+  padding: 80px 24px 120px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.stagesHeader {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.stagesTitle {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.stagesDesc {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.stagesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 700px) {
+  .stagesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Stage Card */
+.stageCard {
+  background: var(--stage-bg, var(--bg-surface));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.stageCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--stage-color);
+  border-radius: 16px 16px 0 0;
+}
+
+.stageCard:hover {
+  transform: translateY(-4px);
+}
+
+.stageHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.stageEmoji {
+  font-size: 24px;
+}
+
+.stageLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--stage-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  flex: 1;
+}
+
+.stageIndex {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  background: rgba(255,255,255,0.04);
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.stageHours {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  color: var(--stage-color);
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.stageCompare {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.stageFinal {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-warning);
+  padding: 10px 14px;
+  background: rgba(255, 164, 43, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 164, 43, 0.2);
+}
+
+/* Final CTA */
+.finalCta {
+  text-align: center;
+  margin-top: 80px;
+  padding: 60px 40px;
+  background: var(--bg-surface);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.finalTitle {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.finalDesc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.finalBtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 80px 16px 48px;
+  }
+  .inputArea {
+    padding: 20px 20px;
+  }
+  .stageCard {
+    padding: 24px 20px;
+  }
+  .finalCta {
+    padding: 40px 20px;
+  }
+}
